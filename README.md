@@ -18,10 +18,13 @@ N_STATES=10
 # In action
 
 Closed with stats for USA:
+
 ![An image showing the menu collapsed and the current stats for the United States.](covid-19_menubar.png)
 
 Open, with the top 15 states by number of cases:
+
 ![An image showing the menu open and the top 15 states by number of cases.](covid-19_top15_states.png)
 
 Open, with only custom states:
+
 ![An image showing the menu open and the top 15 states by number of cases.](covid-19_custom_states.png)
