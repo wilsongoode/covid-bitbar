@@ -5,9 +5,9 @@
 # <bitbar.author>Wilson Goode</bitbar.author>
 # <bitbar.author.github>wilsongoode</bitbar.author.github>
 # <bitbar.desc>Displays stats of US COVID-19 cases, with a submenu for user-defineable States. Can also be configured to show the top n states.</bitbar.desc>
-# <bitbar.image>https://raw.githubusercontent.com/skhg/BitBar-Plugins/master/NetworkInfo/ip_info.jpg</bitbar.image>
+# <bitbar.image>https://github.com/wilsongoode/covid-bitbar/blob/master/covid-19_top15_states.png</bitbar.image>
 # <bitbar.dependencies>node, npm, corona-cli</bitbar.dependencies>
-# <bitbar.abouturl>https://github.com/skhg/BitBar-Plugins/tree/master/NetworkInfo</bitbar.abouturl>
+# <bitbar.abouturl>https://github.com/wilsongoode/covid-bitbar</bitbar.abouturl>
 
 
 # Setting my Bitbar path to include /usr/local/bin. Systems may vary
