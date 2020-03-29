@@ -1,6 +1,6 @@
 #!/bin/zsh 
 
-# <bitbar.title>Corona Virus Info</bitbar.title>
+# <bitbar.title>COVID-19 Stats</bitbar.title>
 # <bitbar.version>v1.0</bitbar.version>
 # <bitbar.author>Wilson Goode</bitbar.author>
 # <bitbar.author.github>wilsongoode</bitbar.author.github>
