@@ -35,8 +35,8 @@ STATES=("North Carolina" "New York" "California")
 # ALTERNATIVE MODE: Instead of choosing states, you can choose to have        #
 # the top n states. If TOP_N=true, shows N_STATES number of states with       #
 # the most cases.                                                             #
-TOP_N=false                                                                   
-N_STATES=10                                                                   
+TOP_N=true                                                                   
+N_STATES=15                                                                   
 # =========================================================================== #
 
 
