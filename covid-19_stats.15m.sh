@@ -23,7 +23,7 @@ export PATH
 
 # ==============================CONFIGURATION================================ #
 # Set these variables to configure the output to your                         #
-# liking. Set the directory for your Bitbar Plugins / directory you           #
+# liking. Set the directory for your BitBar Plugins / directory you           #
 # want to keep a cache in.                                                    #
 BITBAR_DIR=~/Code/bitbar_plugins                                              
                                                                              

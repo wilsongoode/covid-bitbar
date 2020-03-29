@@ -2,7 +2,7 @@
 This shell script allows you to see frequently-updated stats for the COVID-19 pandemic in the United States.
 
 # Requirements
-- Bitbar `https://github.com/matryer/bitbar`
+- BitBar `https://github.com/matryer/bitbar`
 - node
 - npm
 - corona-cli `https://github.com/ahmadawais/corona-cli`
