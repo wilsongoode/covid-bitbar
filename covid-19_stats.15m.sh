@@ -25,17 +25,17 @@ export PATH
 # Set these variables to configure the output to your                         #
 # liking. Set the directory for your BitBar Plugins / directory you           #
 # want to keep a cache in.                                                    #
-BITBAR_DIR=~/Code/bitbar_plugins                                              
+BITBAR_DIR=~/.config/argos/covid-bitbar                                              
                                                                              
 # Choose which states you want stats for. Any states you add here will        #
 # be shown within the dropdown menu. Be sure to separate each state in        #
 # its own parentheses.                                                        #
-STATES=("North Carolina" "New York" "California")                             
+STATES=("North Carolina" "New York")                             
                                                                              
 # ALTERNATIVE MODE: Instead of choosing states, you can choose to have        #
 # the top n states. If TOP_N=true, shows N_STATES number of states with       #
 # the most cases.                                                             #
-TOP_N=true                                                                   
+TOP_N=false                                                                   
 N_STATES=15                                                                   
 # =========================================================================== #
 
@@ -68,19 +68,21 @@ NONE='\033[0m'
 # Top line for USA data
 cat $BITBAR_DIR/.corona_usa_cache |
     grep "USA" |
+    sed 's/\x1b\[[0-9;]*m//g' |
     sed -E 's/[[:space:]][[:space:]][[:space:]]*/;/g' |
     awk -v r=$RED -v y=$YELLOW -v g=$GREEN -v b=$BLUE -v n=$NONE -F';' \
-        '{ printf "%15s %15s %15s %15s %15s |font=AndaleMono\n",
-            n$2, b"😷"$3, g"("$4"▲)", r"💀"$5, y"("$6"▲)"}'
+	'{ printf "%15s %15s %15s %15s %15s |font=Courier\n",
+            n$2, "😷"b$3, g"("$4"▲)", n"💀"r$5, y"("$6"▲)"}'    
 echo "---"
 
 # Submenu for States of Interest
 cat $BITBAR_DIR/.corona_states_cache | 
     grep $MOD_GREP_A $MOD_GREP_STATES |
+    sed 's/\x1b\[[0-9;]*m//g' |
     sed -E 's/[[:space:]][[:space:]][[:space:]]*/;/g ; 
         s/District Of Columbia/Washington, D.C./ ;
         s/United States Virgin Islands/US Virgin Islands/ ;
         s/Diamond Princess Cruise/Diamond Princess Cr./' |
     awk -v r=$RED -v y=$YELLOW -v g=$GREEN -v b=$BLUE -v n=$NONE -F';' \
-        '{ printf "%-30s %20s %30s %20s %30s |font=AndaleMono size=12\n",
+        '{ printf "%-30s %20s %30s %20s %30s |font=Courier size=12\n",
             y$2, b$3, g"("$4"▲)", r$5, y"("$6"▲)"}'
