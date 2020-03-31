@@ -94,7 +94,7 @@ cat $BITBAR_DIR/.corona_states_cache |
             y$2, b$3, g"("$4"▲)", r$5, y"("$6"▲)"}'
 
 # Submenu for ALTERNATIVE MODE selection:
-echo "Would you like to view top States or chosen States?"
+echo "Would you like to view Top 15 States or chosen States?"
 echo "--Top States | terminal=false refresh=true \
     bash='sed -i '$firstoccur\s/TOP_N=false/TOP_N=true/' $0'"
 echo "--Selected States | terminal=false refresh=true \
