@@ -78,7 +78,7 @@ cat $BITBAR_DIR/.corona_usa_cache |
     sed -E 's/[[:space:]][[:space:]][[:space:]]*/;/g' |
     awk -v r=$RED -v y=$YELLOW -v g=$GREEN -v b=$BLUE -v n=$NONE -F';' \
 	'{ printf "%15s %15s %15s %15s %15s |font=Courier\n",
-            n$2, "😷"b$3, g"("$4"▲)", n"💀"r$5, y"("$6"▲)"}'
+            n$2, "😷 "b$3, g"("$4"▲)", n"💀 "r$5, y"("$6"▲)"}'
 echo "---"
 
 # Submenu for States of Interest
@@ -99,3 +99,4 @@ echo "--Top 15 States | terminal=false refresh=true \
     bash='sed -i '$firstoccur\s/TOP_N=false/TOP_N=true/' $0'"
 echo "--Selected States | terminal=false refresh=true \
     bash='sed -i '$firstoccur\s/TOP_N=true/TOP_N=false/' $0'"
+#EOF
