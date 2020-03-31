@@ -35,7 +35,7 @@ STATES=("North Carolina" "New York" "California")
 # ALTERNATIVE MODE: Instead of choosing states, you can choose to have        #
 # the top n states. If TOP_N=true, shows N_STATES number of states with       #
 # the most cases.                                                             #
-TOP_N=true                                                                   
+TOP_N=true                                                  
 N_STATES=15                                                                   
 # =========================================================================== #
 
@@ -84,3 +84,7 @@ cat $BITBAR_DIR/.corona_states_cache |
     awk -v r=$RED -v y=$YELLOW -v g=$GREEN -v b=$BLUE -v n=$NONE -F';' \
         '{ printf "%-30s %20s %30s %20s %30s |font=AndaleMono size=12\n",
             y$2, b$3, g"("$4"▲)", r$5, y"("$6"▲)"}'
+
+# Submenu for ALTERNATIVE MODE selection:
+echo "---"
+echo "Refresh | refresh=true"
