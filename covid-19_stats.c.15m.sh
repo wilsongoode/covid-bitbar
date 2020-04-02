@@ -3,7 +3,7 @@
 # Created by: Wilson Goode
 # Modified for Argos by: David Madison Hardaway, Jr.
 # Pulled from GitHub: March 30, 2020
-# Last update for Argos: March 31, 2020
+# Last update for Argos: April 1, 2020
 
 # <bitbar.title>COVID-19 Stats</bitbar.title>
 # <bitbar.version>v1.0</bitbar.version>
@@ -80,6 +80,9 @@ cat $BITBAR_DIR/.corona_usa_cache |
 	'{ printf "%15s %15s %15s %15s %15s |font=Courier\n",
             n$2, "😷 "b$3, g"("$4"▲)", n"💀 "r$5, y"("$6"▲)"}'
 echo "---"
+
+# Submenu for GMT clock time -- the time that the updates are based upon
+echo -n "The current date and time is: " ; date -u +%c
 
 # Submenu for States of Interest
 cat $BITBAR_DIR/.corona_states_cache | 
