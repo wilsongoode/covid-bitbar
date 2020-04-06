@@ -102,7 +102,7 @@ echo "---"
 # cases, todayCases, deaths, todayDeaths, recovered, active, critical, 
 # casesPerOneMillion, deathsPerOneMillion
 # As the data source updates, it is possible more sort options will be added
-curl -s https://corona.lmao.ninja/states\?sort\=todayCases |
+curl -s https://corona.lmao.ninja/states\?sort\=cases |
     # Manipulates data and exports tab-delimited (tsv)
     jq -r '["State", "Cases", "Cases (today)", "Deaths", "Deaths (today)"], 
         ["---"],
