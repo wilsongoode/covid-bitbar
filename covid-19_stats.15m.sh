@@ -83,7 +83,7 @@ BLUE='\033[01;36m'
 NONE='\033[0m'
 
 # USA data for the menu bar line
-curl -s https://corona.lmao.ninja/countries/USA |
+curl -s https://corona.lmao.ninja/v2/countries/USA |
     # Manipulates data and exports tab-delimited (tsv)
     jq -r '. | [.country, .cases, .todayCases, .deaths, .todayDeaths] | @tsv' |
     # Removes quotes
@@ -102,7 +102,7 @@ echo "---"
 # cases, todayCases, deaths, todayDeaths, recovered, active, critical,
 # casesPerOneMillion, deathsPerOneMillion
 # As the data source updates, it is possible more sort options will be added
-curl -s https://corona.lmao.ninja/states\?sort=cases |
+curl -s https://corona.lmao.ninja/v2/states\?sort=cases |
     # Manipulates data and exports tab-delimited (tsv)
     jq -r '["State", "Cases", "Cases (today)", "Deaths", "Deaths (today)"],
         ["---"],
@@ -111,8 +111,7 @@ curl -s https://corona.lmao.ninja/states\?sort=cases |
     sed -E 's/"//g;
         s/District Of Columbia/Washington D.C./;
         s/Northern Mariana Islands/N. Mariana Islands/;
-        s/United States Virgin Islands/US Virgin Islands/;
-        s/Diamond Princess Cruise/Diamond Princess Cr./' |
+        s/United States Virgin Islands/US Virgin Islands/' |
     # Grabs specific states/lines or every line, depending on configuration
     grep $GREP_LIMIT "$MOD_STATES" |
     # Prints numbers with comma as thousands place separators
@@ -128,7 +127,7 @@ curl -s https://corona.lmao.ninja/states\?sort=cases |
 echo "---"
 
 # WORLD totals for the submenu
-curl -s https://corona.lmao.ninja/all |
+curl -s https://corona.lmao.ninja/v2/all |
     # Manipulates data and exports tab-delimited (tsv)
     jq -r '. | ["World", .cases, .todayCases, .deaths, .todayDeaths] | @tsv' |
     # Removes quotes
