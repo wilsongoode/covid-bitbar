@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # <bitbar.title>COVID-19 Stats</bitbar.title>
-# <bitbar.version>v1.1</bitbar.version>
+# <bitbar.version>v1.2</bitbar.version>
 # <bitbar.author>Wilson Goode</bitbar.author>
 # <bitbar.author.github>wilsongoode</bitbar.author.github>
 # <bitbar.desc>Displays stats of US COVID-19 cases, with a submenu for user-defineable States. Can also be configured to show the top n states.</bitbar.desc>
