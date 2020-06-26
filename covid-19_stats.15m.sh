@@ -23,7 +23,7 @@ export LANG
 
 # ===============================DATA SOURCE=================================
 # This script curls JSON data from the NovelCOVID API, available at:
-# https://corona.lmao.ninja
+# https://corona.lmao.ninja OR https://disease.sh
 # GitHub: https://github.com/novelcovid/api
 # There are a few other APIs or tools for pulling COVID-19 data, several of
 # which point back to this one. v1.0 of this script used a node.js-based CLI
@@ -36,6 +36,19 @@ export LANG
 # READ THIS SECTION:
 # Set these variables to configure the output to your liking.
 #
+# The country to be displayed in the menu bar stats
+COUNTRY="USA"
+# If you want the previous day's total, set COUNTRY_YESTERDAY="true"
+COUNTRY_YESTERDAY="true"
+#
+# For states, you can change the sort order to one of the following:
+# cases, todayCases, deaths, todayDeaths, recovered, active, critical,
+# casesPerOneMillion, deathsPerOneMillion
+# As the data source updates, it is possible more sort options will be added
+STATE_SORT="todayCases"
+# If you want the previous day's total, set STATE_YESTERDAY="true"
+STATE_YESTERDAY="true"
+#
 # Choose which states you want stats for. Any states you add here will
 # be shown within the dropdown menu. Be sure to separate each state in
 # its own parentheses with a space between each string.
@@ -45,7 +58,7 @@ STATES=("North Carolina" "New York" "California")
 #
 # ALTERNATIVE TOP STATES MODE:
 # Instead of choosing states, you can choose to have the top n states ranked
-# by number of cases, where n is a number you set with the variable N_STATES.
+# by STATE_SORT, where n is a number you set with the variable N_STATES.
 # Comment/uncomment one of the next two lines to set your preference.
 TOP_N=true     # Sets the script to show the top states
 # TOP_N=false    # Sets the script to show user-selected states
@@ -82,8 +95,8 @@ YELLOW='\033[01;33m'
 BLUE='\033[01;36m'
 NONE='\033[0m'
 
-# USA data for the menu bar line
-curl -s https://corona.lmao.ninja/v2/countries/USA |
+# Country data for the menu bar line
+curl -s "https://disease.sh/v2/countries/$COUNTRY?yesterday=$COUNTRY_YESTERDAY" |
     # Manipulates data and exports tab-delimited (tsv)
     jq -r '. | [.country, .cases, .todayCases, .deaths, .todayDeaths] | @tsv' |
     # Removes quotes
@@ -97,12 +110,8 @@ curl -s https://corona.lmao.ninja/v2/countries/USA |
             n$1, "😷"b$2, g"("$3"▲)", "💀"r$4, y"("$5"▲)") }'
 echo "---"
 
-# STATES data for the submenu
-# HINT: you can change the sort order to one of the following:
-# cases, todayCases, deaths, todayDeaths, recovered, active, critical,
-# casesPerOneMillion, deathsPerOneMillion
-# As the data source updates, it is possible more sort options will be added
-curl -s https://corona.lmao.ninja/v2/states\?sort=cases |
+# States data for the submenu
+curl -s "https://disease.sh/v2/states?sort=$STATE_SORT&yesterday=$STATE_YESTERDAY" |
     # Manipulates data and exports tab-delimited (tsv)
     jq -r '["State", "Cases", "Cases (today)", "Deaths", "Deaths (today)"],
         ["---"],
